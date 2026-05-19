@@ -45,7 +45,7 @@ def main():
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
         url = f"http://localhost:{PORT}"
         try:
-            print(f"\n  🧋  BrewCha is brewing at {url}")
+            print(f"\n BrewCha is brewing at {url}")
         except UnicodeEncodeError:
             print(f"\n  [BrewCha] is brewing at {url}")
         print(f"      Serving from: {DIRECTORY}")

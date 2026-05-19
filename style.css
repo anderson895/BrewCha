@@ -140,7 +140,7 @@ ul { list-style: none; }
     cursor: pointer; user-select: none;
     display: flex; align-items: center; gap: 8px;
 }
-.nav-brand::before { content: "🧋"; font-size: 1.4rem; }
+.nav-brand::before {  font-size: 1.4rem; }
 .nav-links { display: flex; gap: 8px; }
 .nav-link {
     padding: 10px 18px;

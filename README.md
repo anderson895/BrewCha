@@ -1,4 +1,4 @@
-# BrewCha 🧋
+# BrewCha 
 
 A milk tea & coffee ordering web app built with **PyScript** — Python runs directly in the browser via WebAssembly (Pyodide). Faithfully reproduces a 5-screen mobile design (Home, Menu, Product Detail, Cart, Checkout) and adapts gracefully to a desktop layout at wider viewports.
 
@@ -126,7 +126,7 @@ If you later add packages (e.g., `flask`, `fastapi`), install them into the venv
 You should see:
 
 ```
-  🧋  BrewCha is brewing at http://localhost:8000
+        BrewCha is brewing at http://localhost:8000
       Serving from: C:\Users\...\Xyrex
       Press Ctrl+C to stop.
 ```
