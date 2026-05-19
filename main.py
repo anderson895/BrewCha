@@ -16,24 +16,15 @@ The code is organised into clearly labelled sections so it's easy to find
 things. Read top-to-bottom and it should make sense.
 """
 
-# We import the small set of helpers we need from PyScript and Python.
+
 from pyscript import document, window
-from pyodide.ffi import create_proxy   # turns a Python function into something JS can call
-from js import setTimeout              # lets us schedule code to run later
-import html                            # used to safely escape user-visible text
+from pyodide.ffi import create_proxy  
+from js import setTimeout              
+import html                          
 
 
-# ===========================================================================
-# 1. DATA  -- the menu and a few helper lists
-# ===========================================================================
 
-# Each product is a small dictionary. To add a new drink, just add another
-# entry to this list. `color_a` and `color_b` paint the drink in the SVG cup.
-# Each product has an "image" path. Drop a matching file into
-# `assets/products/` to see the real photo instead of the drawn SVG cup.
-# If the file is missing, the SVG cup automatically takes over.
 PRODUCTS = [
-    # ---- Milk Tea ----
     {"id":  1, "cat": "milk_tea", "name": "Brown Sugar Milk Tea",   "desc": "Classic milk tea with brown sugar pearls.",        "price": 120, "color_a": "#D2A878", "color_b": "#6B4423", "kind": "boba",    "best": True,  "image": "assets/products/brown-sugar-milk-tea.jpg"},
     {"id":  2, "cat": "milk_tea", "name": "Matcha Milk Tea",        "desc": "Premium matcha with creamy milk.",                 "price": 130, "color_a": "#C5D89A", "color_b": "#6B8E23", "kind": "boba",    "best": False, "image": "assets/products/matcha-milk-tea.jpg"},
     {"id":  3, "cat": "milk_tea", "name": "Wintermelon Milk Tea",   "desc": "Smooth wintermelon with milk and pearls.",         "price": 120, "color_a": "#F0E2C2", "color_b": "#B89968", "kind": "boba",    "best": False, "image": "assets/products/wintermelon-milk-tea.jpg"},
