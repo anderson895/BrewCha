@@ -1,0 +1,4 @@
+# BrewCha runs entirely in the browser via PyScript (Pyodide).
+# The local server uses only the Python standard library, so this file is empty.
+# If you ever add libraries (e.g. flask, fastapi), pin them here and install with:
+#   .\venv\Scripts\pip install -r requirements.txt

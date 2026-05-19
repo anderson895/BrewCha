@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrewCha — Your Daily Cup of Happiness</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%A7%8B</text></svg>">
+
+    <!-- PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="splash">
+            <div class="splash-cup">
+                <div class="cup-body"></div>
+                <div class="cup-straw"></div>
+                <div class="cup-bubbles">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="splash-logo">BrewCha</div>
+            <div class="splash-tag">Brewing your experience…</div>
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toast-host"></div>
+
+    <script type="py" src="main.py"></script>
+</body>
+</html>
