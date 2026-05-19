@@ -252,4 +252,3 @@ If you'd like to extend the app:
 
 ---
 
-Made with ☕ and 🧋 — Brewed in Quezon City.
