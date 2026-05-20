@@ -1,8 +1,5 @@
 @echo off
-REM Launch BrewCha local server using the venv Python
+REM Launch BrewCha local dev server.
+REM No venv needed — serve.py uses only the Python standard library.
 cd /d "%~dp0"
-if not exist "venv\Scripts\python.exe" (
-    echo Creating venv...
-    python -m venv venv
-)
-"venv\Scripts\python.exe" serve.py
+python serve.py

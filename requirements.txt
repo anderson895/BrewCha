@@ -1,4 +1,19 @@
-# BrewCha runs entirely in the browser via PyScript (Pyodide).
-# The local server uses only the Python standard library, so this file is empty.
-# If you ever add libraries (e.g. flask, fastapi), pin them here and install with:
-#   .\venv\Scripts\pip install -r requirements.txt
+# BrewCha — Python dependencies
+#
+# This file is intentionally empty. The project has NO pip dependencies.
+#
+# Why?
+#   - serve.py uses only the Python standard library
+#     (http.server, socketserver, webbrowser, os, sys)
+#   - main.py runs INSIDE THE BROWSER via PyScript/Pyodide.
+#     Its imports (pyscript, pyodide.ffi, js, html) are provided by
+#     the PyScript runtime loaded from the CDN in index.html, NOT
+#     by pip. Installing them locally has no effect.
+#
+# If you later add a backend (Flask, FastAPI, etc.) or dev tools
+# (black, ruff, pytest), list them below — one per line — then run:
+#     .\venv\Scripts\pip install -r requirements.txt
+#
+# Example:
+#   flask==3.0.0
+#   ruff==0.4.0

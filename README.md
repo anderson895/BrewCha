@@ -45,8 +45,7 @@ Xyrex/
 ├── style.css           # Design system, desktop styles, mobile media queries
 ├── serve.py            # Local dev server (Python stdlib only, no-cache headers)
 ├── run.bat             # One-click launcher for Windows
-├── requirements.txt    # Empty — kept for future packages
-├── venv/               # Local Python virtual environment (created by setup)
+├── requirements.txt    # Empty — no pip packages needed (kept for future use)
 ├── UI.png              # Original mobile design mockup (reference)
 └── README.md           # You are here
 ```
@@ -67,13 +66,13 @@ Xyrex/
 
 ## Quick Start (Windows)
 
-Open the project folder and **double-click `run.bat`**.
+Open the project folder and **double-click `run.bat`** — or run from PowerShell:
 
-It will:
+```powershell
+python serve.py
+```
 
-1. Create the venv (`venv/`) if it doesn't exist yet.
-2. Launch `serve.py` on `http://localhost:8000`.
-3. Open your default browser to the app automatically.
+It will launch `serve.py` on `http://localhost:8000` and open your default browser to the app automatically.
 
 To stop the server, press **Ctrl+C** in the terminal window or just close it.
 
@@ -83,44 +82,18 @@ To stop the server, press **Ctrl+C** in the terminal window or just close it.
 
 If you'd rather see what's happening, run the steps yourself.
 
-### 1. Create the virtual environment
+> **No dependencies to install.** `requirements.txt` is intentionally empty — `serve.py` uses only the Python standard library, and `main.py` runs in the browser via PyScript (loaded from a CDN, not pip).
+
+### Run the dev server
 
 ```powershell
 # Windows (PowerShell)
-cd C:\Users\Desktop\Downloads\projects\Xyrex
-python -m venv venv
+python serve.py
 ```
 
 ```bash
 # macOS / Linux
-cd /path/to/Xyrex
-python3 -m venv venv
-```
-
-The venv keeps any future dependencies isolated from your global Python. The app itself currently has **no Python package dependencies** — the `requirements.txt` file is intentionally empty.
-
-If you later add packages (e.g., `flask`, `fastapi`), install them into the venv:
-
-```powershell
-# Windows
-.\venv\Scripts\pip install -r requirements.txt
-```
-
-```bash
-# macOS / Linux
-./venv/bin/pip install -r requirements.txt
-```
-
-### 2. Run the dev server
-
-```powershell
-# Windows (PowerShell)
-.\venv\Scripts\python.exe serve.py
-```
-
-```bash
-# macOS / Linux
-./venv/bin/python serve.py
+python3 serve.py
 ```
 
 You should see:
@@ -134,6 +107,22 @@ You should see:
 Your browser will open automatically. If it doesn't, navigate to **http://localhost:8000** manually.
 
 > **Port 8000 in use?** Edit `serve.py` and change `PORT = 8000` to any free port (e.g., 8080, 5500, 3000).
+
+### Optional — Using a virtual environment
+
+A venv is **not required** for this project (no pip packages to install). It only becomes useful if you later add backend libraries like Flask or FastAPI. To create one:
+
+```powershell
+# Windows (PowerShell)
+python -m venv venv
+.\venv\Scripts\python.exe serve.py
+```
+
+```bash
+# macOS / Linux
+python3 -m venv venv
+./venv/bin/python serve.py
+```
 
 ---
 
@@ -208,7 +197,7 @@ To change the size price deltas, edit the `SIZES` list. To change the ice/sweetn
 The boba emoji can't be encoded by the legacy `cp1252` console codepage. `serve.py` already calls `sys.stdout.reconfigure(encoding="utf-8")` and falls back to a plain `[BrewCha]` prefix if that fails. If you're on Python < 3.7 (which doesn't have `reconfigure`), upgrade Python or run with:
 
 ```powershell
-$env:PYTHONIOENCODING = "utf-8"; .\venv\Scripts\python.exe serve.py
+$env:PYTHONIOENCODING = "utf-8"; python serve.py
 ```
 </details>
 
@@ -234,7 +223,7 @@ Hard-reload your browser tab (**Ctrl+Shift+R** / **Cmd+Shift+R**). The dev serve
 Python isn't on your PATH. Reinstall Python from [python.org](https://python.org) with the **"Add Python to PATH"** checkbox enabled, or use the full path:
 
 ```powershell
-"C:\Program Files\Python310\python.exe" -m venv venv
+"C:\Program Files\Python310\python.exe" serve.py
 ```
 </details>
 
@@ -248,7 +237,7 @@ If you'd like to extend the app:
 - **Real product images** — swap the SVG cup placeholders for actual product photos (drop them in `assets/` and reference via `<img>` in `render_product_card_*`).
 - **Order history** view in the Profile section.
 - **Promo code input** on the checkout screen — the `BREWCHA20` banner is currently decorative.
-- **Real payment integration** by adding a FastAPI/Flask backend (drop it into the venv via `requirements.txt`) and POSTing the order from PyScript with `pyodide.http`.
+- **Real payment integration** by adding a FastAPI/Flask backend (list it in `requirements.txt`, optionally in a venv) and POSTing the order from PyScript with `pyodide.http`.
 
 ---
 
